@@ -6,6 +6,11 @@ const hf = new HfInference(process.env.HUGGINGFACE_TOKEN);
 
 export async function generateLogo(prompt: string, name?: string) {
   try {
+    console.log(
+      "HUGGINGFACE_TOKEN:",
+      process.env.HUGGINGFACE_TOKEN ? "Set" : "Not set",
+    );
+
     const randomSeed = Math.floor(Math.random() * 1000000);
     const namePrompt = name
       ? `with the name "${name}" prominently incorporated`
@@ -39,6 +44,7 @@ export async function generateLogo(prompt: string, name?: string) {
     console.error("Detailed error in generateLogo:", error);
     if (error instanceof Error) {
       if (error.message.includes("Rate limit reached")) {
+        console.error("Rate limit error details:", error);
         return {
           status: 429,
           error:
