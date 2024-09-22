@@ -38,6 +38,13 @@ export async function generateLogo(prompt: string, name?: string) {
   } catch (error) {
     console.error("Detailed error in generateLogo:", error);
     if (error instanceof Error) {
+      if (error.message.includes("Rate limit reached")) {
+        return {
+          status: 429,
+          error:
+            "Rate limit reached. Please try again later or contact support.",
+        };
+      }
       return {
         status: 500,
         error: `Failed to generate logo: ${error.message}`,

@@ -34,9 +34,10 @@ export default function LogoGeneratorForm({
         const newImageUrl = `data:image/png;base64,${response.image}`;
         setImageUrl(newImageUrl);
         onImageGenerated(newImageUrl);
+      } else if (response.status === 429) {
+        setErrorMessage("Too many requests. Please try again later.");
       } else {
         setErrorMessage(`Error generating logo: ${response.error}`);
-        console.error("Detailed error:", response.error);
       }
     } catch (error) {
       setErrorMessage("An unexpected error occurred");
@@ -53,6 +54,8 @@ export default function LogoGeneratorForm({
           <Image
             src={imageUrl}
             alt="Generated Logo"
+            width={300}
+            height={300}
             className="w-full h-full object-contain"
           />
         </div>
