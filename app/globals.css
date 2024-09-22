@@ -2,26 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.bg-gradient {
+  background: var(--gradient);
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+    /* Name: custom color palette
+       Author: Ilias Ism
+       URL: https://gradient.page */
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+    /* CSS: .bg-gradient { background: var(--gradient) } */
+    --gradient: linear-gradient(to top left, #43c6ac, #f8ffae);
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+    --background: 179 34.45% 4.16%;
+    --foreground: 179 5.300000000000001% 97.6%;
+
+    --muted: 179 26.5% 15.600000000000001%;
+    --muted-foreground: 179 5.300000000000001% 55.2%;
+
+    --popover: 179 54.4% 6.76%;
+    --popover-foreground: 179 5.300000000000001% 97.6%;
+
+    --card: 179 54.4% 6.76%;
+    --card-foreground: 179 5.300000000000001% 97.6%;
+
+    --border: 179 26.5% 15.600000000000001%;
+    --input: 179 26.5% 15.600000000000001%;
+
+    --primary: 179 53% 52%;
+    --primary-foreground: 179 5.300000000000001% 5.2%;
+
+    --secondary: 179 26.5% 15.600000000000001%;
+    --secondary-foreground: 179 5.300000000000001% 97.6%;
+
+    --accent: 179 26.5% 15.600000000000001%;
+    --accent-foreground: 179 5.300000000000001% 97.6%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 179 5.300000000000001% 97.6%;
+
+    --ring: 179 53% 52%;
+    --radius: 0.5rem;
   }
 }
