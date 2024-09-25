@@ -27,7 +27,7 @@ export async function generateLogo(prompt: string, name?: string) {
     console.log("Sending request to Hugging Face with prompt:", fullPrompt);
 
     const response = await hf.textToImage({
-      model: "black-forest-labs/FLUX.1-dev",
+      model: "black-forest-labs/FLUX.1-schnell",
       inputs: fullPrompt,
     });
 
